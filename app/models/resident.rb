@@ -1,6 +1,8 @@
 class Resident < ApplicationRecord
   has_one_attached :photo
 
+  has_many :addresses, as: :addressable
+
   validates :full_name, presence: true, length: { maximum: 255 }
   validates :document, presence: true, cpf: true
   validates :health_card_document, presence: true,

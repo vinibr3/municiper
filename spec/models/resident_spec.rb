@@ -16,6 +16,7 @@ RSpec.describe Resident, type: :model do
   it { is_expected.to(have_one_attached(:photo)) }
   it { is_expected.to(validate_length_of(:full_name).is_at_most(255)) }
   it { is_expected.to(validate_length_of(:email).is_at_most(255)) }
+  it { is_expected.to(have_many(:addresses)) }
 
   context 'when validates email' do
     describe 'with valid email' do
