@@ -8,7 +8,8 @@ class Resident < ApplicationRecord
   validates :full_name, presence: true, length: { maximum: 255 }
   validates :document, presence: true, cpf: true
   validates :health_card_document, presence: true,
-                                   brazilian_health_card_number: true
+                                   brazilian_health_card_number: true,
+                                   uniqueness: true
   validates :email, presence: true,
                     format: { with: URI::MailTo::EMAIL_REGEXP },
                     length: { maximum: 255 }
