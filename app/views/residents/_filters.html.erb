@@ -1,0 +1,42 @@
+<%= search_form_for @q do |f| %>
+<div class="row">
+  <div class="col-4 mb-3"
+    <%= f.label :full_name, class: 'form-label' %>
+    <%= f.search_field :full_name_cont, class: 'form-control' %>
+  </div>
+  <div class="col-4 mb-3"
+    <%= f.label :document, class: 'form-label' %>
+    <%= f.search_field :document_cont, class: 'form-control' %>
+  </div>
+  <div class="col-4 mb-3"
+    <%= f.label :health_card_document, class: 'form-label' %>
+    <%= f.search_field :health_card_document_cont, class: 'form-control' %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-4 mb-3"
+    <%= f.label :email, class: 'form-label' %>
+    <%= f.search_field :email_cont, class: 'form-control' %>
+  </div>
+  <div class="col-4 mb-3"
+    <%= f.label :phone, class: 'form-label' %>
+    <%= f.search_field :phone_cont, class: 'form-control' %>
+  </div>
+  <div class="col-4 mb-3"
+    <%= f.label :status, class: 'form-label' %>
+    <%= f.select :status_in, [[t('active'), true], [t('inactive'), false]], { include_blank: true }, class: 'form-control' %>
+  </div>
+</div>
+<div class="row">
+  <%= f.label :birthdate, class: 'form-label' %>
+  <div class="col-3 mb-3">
+    <div class="small"><%= t('from') %></div>
+    <%= f.date_field :birthdate_gteq, class: 'form-control' %>
+  </div>
+  <div class="col-3 mb-3">
+    <div class="small"><%= t('until') %></div>
+    <%= f.date_field :birthdate_lteq, class: 'form-control' %>
+  </div>
+</div>
+<%= f.submit %>
+<% end %>

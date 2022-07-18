@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col">
+    <%= render partial: 'filters' %>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th> <%= Resident.human_attribute_name(:full_name) %> </th>
+            <th> <%= Resident.human_attribute_name(:document) %> </th>
+            <th> <%= Resident.human_attribute_name(:health_card_document) %> </th>
+            <th> <%= Resident.human_attribute_name(:email) %> </th>
+            <th> <%= Resident.human_attribute_name(:birthdate) %> </th>
+            <th> <%= Resident.human_attribute_name(:phone) %> </th>
+            <th> <%= Resident.human_attribute_name(:status) %> </th>
+          <tr>
+        </thead>
+        <tbody>
+          <%= render @residents %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <%= paginate @residents %>
+  </div>
+</div>

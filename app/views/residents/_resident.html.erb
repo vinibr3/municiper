@@ -1,0 +1,9 @@
+<tr>
+  <td> <%= resident.full_name %> </td>
+  <td> <%= format_document(resident.document) %> </td>
+  <td> <%= format_brazilian_health_card_number(resident.health_card_document) %> </td>
+  <td> <%= resident.email %> </td>
+  <td> <%= l(resident.birthdate, format: :shortest) %> </td>
+  <td> <%= number_to_phone(resident.phone , pattern: /(\d{1,2})(\d{5})(\d{4})$/, area_code: true) %> </td>
+  <td> <%= t(resident.status) %> </td>
+</tr>
