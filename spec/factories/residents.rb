@@ -6,7 +6,7 @@ FactoryBot.define do
     email { Faker::Internet.email }
     birthdate { Faker::Date.birthday(min_age: 0, max_age: 125) }
     phone { %w[5562993178387 5511940594050].sample }
-    status { Faker::Boolean.boolean }
+    status { %w[active inactive].sample }
     photo { Rack::Test::UploadedFile.new(Rails.root.join('spec/support/image.png'), 'image/png') }
 
     trait :with_invalid_email do

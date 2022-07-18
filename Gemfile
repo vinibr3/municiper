@@ -15,6 +15,8 @@ gem 'image_processing', '~> 1.2'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'cpf_validator', '~> 0.2.1'
 gem 'activestorage-validator', '~> 0.2.2'
+gem 'ransack', '~> 3.2', '>= 3.2.1'
+gem 'kaminari', '~> 1.2', '>= 1.2.2'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
