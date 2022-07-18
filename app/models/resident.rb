@@ -1,6 +1,8 @@
 class Resident < ApplicationRecord
   has_one_attached :photo
 
+  enum status: { active: 0, inactive: 1 }
+
   has_many :addresses, as: :addressable
 
   validates :full_name, presence: true, length: { maximum: 255 }
@@ -14,6 +16,7 @@ class Resident < ApplicationRecord
   validates :phone, presence: true
   validates :photo, presence: true, blob: { content_type: ['image/png', 'image/jpg', 'image/jpeg'],
                                             size_range: 1..(5.megabytes) }
+  validates :status, presence: true
 
   validate :birthdate_between_zero_and_125_years_ago
 

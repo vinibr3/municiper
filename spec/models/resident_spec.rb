@@ -17,6 +17,8 @@ RSpec.describe Resident, type: :model do
   it { is_expected.to(validate_length_of(:full_name).is_at_most(255)) }
   it { is_expected.to(validate_length_of(:email).is_at_most(255)) }
   it { is_expected.to(have_many(:addresses)) }
+  it { is_expected.to(validate_presence_of(:status)) }
+  it { is_expected.to(define_enum_for(:status).with_values(%w[active inactive])) }
 
   context 'when validates email' do
     describe 'with valid email' do
