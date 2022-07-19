@@ -28,6 +28,7 @@ pt-BR:
     new_resident_modal_form:
       new: Novo
     index:
+      title: Munícipes
       new_resident: Novo Munícipe
   resident_mailer:
     registration:
@@ -249,7 +250,7 @@ pt-BR:
       default: "%a, %d de %B de %Y, %H:%M:%S %z"
       long: "%d de %B de %Y, %H:%M"
       short: "%d de %B, %H:%M"
-      shortest: "%d de %B de %Y"
+      shortest: "%d/%m/%Y"
     pm: ''
   helpers:
     page_entries_info:
@@ -272,3 +273,4 @@ pt-BR:
   from: De
   until: Até
   edit: Editar
+  search: Pesquisar

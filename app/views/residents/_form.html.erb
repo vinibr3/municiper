@@ -68,7 +68,7 @@
     </div>
     <div class="mb-3">
       <%= address_form.label :state, class: 'form-label' %>
-      <%= address_form.text_field :state, class: 'form-control', required: true %>
+      <%= address_form.select :state, Address::STATES, { include_blank: true }, class: 'form-control', required: true %>
       <div class="invalid-feedback"></div>
     </div>
     <div class="mb-3">

@@ -3,7 +3,7 @@ class Resident < ApplicationRecord
 
   enum status: { inactive: 0, active: 1 }
 
-  has_many :addresses, as: :addressable
+  has_many :addresses, as: :addressable, dependent: :destroy
 
   validates :full_name, presence: true, length: { maximum: 255 }
   validates :document, presence: true, cpf: true
@@ -35,5 +35,7 @@ class Resident < ApplicationRecord
 
   def cleasing
     self.health_card_document = health_card_document.to_s.gsub(/\D/, '')
+    self.document = document.to_s.gsub(/\D/, '')
+    self.phone = phone.to_s.gsub(/\D/, '')
   end
 end
