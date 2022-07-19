@@ -18,8 +18,14 @@
                                'data-turbolinks-track': 'reload',
                                integrity: 'sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2',
                                crossorigin: 'anonymous' %>
+    <%= javascript_include_tag 'https://code.jquery.com/jquery-3.6.0.min.js',
+                               'data-turbolinks-track': 'reload',
+                                integrity: 'sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=',
+                                crossorigin: 'anonymous' %>
+    <%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js',
+                               'data-turbolinks-track': 'reload',
+                                crossorigin: 'anonymous' %>
   </head>
-
   <body>
     <div class="container">
       <%= yield %>
