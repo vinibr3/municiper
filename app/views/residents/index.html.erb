@@ -1,12 +1,17 @@
-<div class="row">
+<div class="row mb-3">
   <div class="col">
     <%= render partial: 'filters' %>
   </div>
 </div>
 <div class="row">
   <div class="col">
+    <%= render partial: 'new_resident_modal_form' %>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
     <div class="table-responsive">
-      <table class="table">
+      <table class="table table-striped">
         <thead>
           <tr>
             <th> <%= Resident.human_attribute_name(:full_name) %> </th>
@@ -18,7 +23,7 @@
             <th> <%= Resident.human_attribute_name(:status) %> </th>
           <tr>
         </thead>
-        <tbody>
+        <tbody id="residents">
           <%= render @residents %>
         </tbody>
       </table>

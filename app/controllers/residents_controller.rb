@@ -7,4 +7,16 @@ class ResidentsController < ApplicationController
                    .includes(:addresses)
                    .page(params[:page])
   end
+
+  def create
+    @resident = Resident.create(valid_params)
+  end
+
+  private
+
+  def valid_params
+    params.require(:resident)
+          .permit(:full_name, :document, :health_card_document, :email,
+                  :phone, :birthdate, :status, :photo)
+  end
 end

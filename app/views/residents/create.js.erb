@@ -1,0 +1,15 @@
+<% if @resident.persisted? %>
+  $('tbody#residents').prepend("<%= j(render @resident) %>")
+  $('#new-resident-modal').modal('hide')
+
+  var form = "<%= j(render partial: 'form', locals: {  resident: Resident.new }) %>"
+  $('#new-resident-form-wrapper').html(form)
+<% else %>
+  $('.form-control').removeClass('is-invalid')
+  <% @resident.errors.each do |error| %>
+    var target = $(".form-control#resident_<%= error.attribute %>")
+
+    target.addClass('is-invalid')
+    target.parent().find('.invalid-feedback').html("<%= error.message %>")
+  <% end %>
+<% end %>
