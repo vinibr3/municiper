@@ -9,9 +9,8 @@ class ResidentsController < ApplicationController
   end
 
   def create
-    @resident = Resident.new(valid_params)
-    @addresses =
-      valid_params[:addresses_attributes].to_h.map{|k, v| @resident.addresses.build(v) }
+    @resident, @addresses =
+      Residents::CreatorService.call(valid_params: valid_params)
   end
 
   def update
