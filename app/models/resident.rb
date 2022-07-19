@@ -14,7 +14,8 @@ class Resident < ApplicationRecord
                     format: { with: URI::MailTo::EMAIL_REGEXP },
                     length: { maximum: 255 }
   validates :birthdate, presence: true
-  validates :phone, presence: true
+  validates :phone, presence: true,
+                    format: { with: BRAZILIAN_PHONE_REGEX }
   validates :photo, presence: true, blob: { content_type: ['image/png', 'image/jpg', 'image/jpeg'],
                                             size_range: 1..(5.megabytes) }
   validates :status, presence: true

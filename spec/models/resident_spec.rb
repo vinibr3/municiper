@@ -157,5 +157,29 @@ RSpec.describe Resident, type: :model do
         expect(resident).to be_invalid
       end
     end
+
+    context 'when validates phone' do
+      describe 'with brazilian phone' do
+        it 'resident is valid' do
+          expect(resident).to be_valid
+        end
+      end
+
+      describe 'with invalid brazilian phone' do
+        let(:resident) { build(:resident, phone: '550099317838') }
+
+        it 'resident is invalid' do
+          expect(resident).to be_invalid
+        end
+      end
+
+      describe 'with international phone' do
+        let(:resident) { build(:resident, phone: '524775484186') }
+
+        it 'resident is invalid' do
+          expect(resident).to be_invalid
+        end
+      end
+    end
   end
 end
