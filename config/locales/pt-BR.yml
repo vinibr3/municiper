@@ -22,6 +22,8 @@ pt-BR:
     city: Cidade
     state: UF
     ibge_code: Codigo IBGE
+    email: Email
+    status: Status
   residents:
     new_resident_modal_form:
       new: Novo
@@ -31,6 +33,9 @@ pt-BR:
     registration:
       subject: Cadastro Realizado
       title: Seu cadastro foi realizado com sucesso na nossa plataforma.
+    status_update:
+      subject: Status Alterado
+      title: 'Seu status foi alterado na nossa plataforma, verifique o novo status abaixo.'
   date:
     abbr_day_names:
     - dom

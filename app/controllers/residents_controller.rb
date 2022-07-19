@@ -14,8 +14,7 @@ class ResidentsController < ApplicationController
   end
 
   def update
-    @resident = Resident.find(params[:id])
-    @resident.assign_attributes(valid_params)
+    @resident = Residents::UpdaterService.call(valid_params: valid_params, id: params[:id])
   end
 
   private

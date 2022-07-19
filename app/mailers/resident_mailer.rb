@@ -9,4 +9,11 @@ class ResidentMailer < ApplicationMailer
 
     mail(to: @resident.email, subject: t('.subject'))
   end
+
+  def status_update
+    @resident = params[:resident]
+    @address = @resident.addresses.first
+
+    mail(to: @resident.email, subject: t('.subject'))
+  end
 end
