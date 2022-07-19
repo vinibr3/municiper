@@ -5,7 +5,7 @@ FactoryBot.define do
     complement { Faker::Address.secondary_address }
     neighboorhood { Faker::Address.community }
     city { Faker::Address.city }
-    state { Faker::Address.state_abbr.first(2) }
+    state { Address::STATES.sample }
     ibge_code { Faker::Code.sin }
     addressable { association(:resident) }
   end
