@@ -7,7 +7,7 @@ class CreateResidents < ActiveRecord::Migration[6.1]
       t.string :email, default: '', null: false
       t.datetime :birthdate, null: false
       t.string :phone, default: '', null: false
-      t.boolean :status, default: true, null: false
+      t.integer :status, default: 1, null: false
 
       t.timestamps
     end
