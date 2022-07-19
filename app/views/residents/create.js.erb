@@ -1,11 +1,11 @@
-<% if @resident.save %>
+$('.form-control').removeClass('is-invalid')
+<% if @resident.persisted? %>
   $('tbody#residents').prepend("<%= j(render @resident) %>")
   $('#new-resident-modal').modal('hide')
 
   var form = "<%= j(render partial: 'form', locals: {  resident: Resident.new }) %>"
   $('#new-resident-form-wrapper').html(form)
 <% else %>
-  $('.form-control').removeClass('is-invalid')
   <% @resident.errors.each do |error| %>
     var target = $(".form-control#resident_<%= error.attribute %>")
 
@@ -15,7 +15,6 @@
 
   <% @addresses.each_with_index do |address, i| %>
     <% address.errors.each do |error| %>
-    resident_addresses_attributes_0_city
       var target = $(".form-control#resident_addresses_attributes_<%= i %>_<%= error.attribute %>")
 
       target.addClass('is-invalid')

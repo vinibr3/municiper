@@ -27,6 +27,10 @@ pt-BR:
       new: Novo
     index:
       new_resident: Novo Munícipe
+  resident_mailer:
+    registration:
+      subject: Cadastro Realizado
+      title: Seu cadastro foi realizado com sucesso na nossa plataforma.
   date:
     abbr_day_names:
     - dom

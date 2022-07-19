@@ -17,6 +17,7 @@ gem 'cpf_validator', '~> 0.2.1'
 gem 'activestorage-validator', '~> 0.2.2'
 gem 'ransack', '~> 3.2', '>= 3.2.1'
 gem 'kaminari', '~> 1.2', '>= 1.2.2'
+gem 'sidekiq', '~> 6.5', '>= 6.5.1'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

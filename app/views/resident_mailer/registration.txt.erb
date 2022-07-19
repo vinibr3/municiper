@@ -1,0 +1,16 @@
+<%= t('.title') %>
+
+<%= t('attributes.full_name') %>:&nbsp; <%= @resident.full_name %>
+<%= t('attributes.document') %>:&nbsp; <%= format_document(@resident.document) %>
+<%= t('attributes.health_card_document') %>:&nbsp; <%= format_brazilian_health_card_number(@resident.health_card_document) %>
+<%= t('attributes.email') %>:&nbsp; <%= @resident.email %>
+<%= t('attributes.birthdate') %>:&nbsp; <%= l(@resident.birthdate, format: :shortest) %>
+<%= t('attributes.phone') %>:&nbsp; <%= number_to_phone(@resident.phone , pattern: /(\d{1,2})(\d{5})(\d{4})$/, area_code: true) %> %>
+<%= t('attributes.status') %>:&nbsp; <%= @resident.status %>
+<%= t('attributes.zipcode') %>:&nbsp; <%= @address.try(:zipcode) %>
+<%= t('attributes.street') %>:&nbsp; <%= @address.try(:street) %>
+<%= t('attributes.complement') %>:&nbsp; <%= @address.try(:complement) %>
+<%= t('attributes.neighboorhood') %>:&nbsp; <%= @address.try(:neighboorhood) %>
+<%= t('attributes.city') %>:&nbsp; <%= @address.try(:city) %>
+<%= t('attributes.state') %>:&nbsp; <%= @address.try(:state) %>
+<%= t('attributes.ibge_code') %>:&nbsp; <%= @address.try(:ibge_code) %>
