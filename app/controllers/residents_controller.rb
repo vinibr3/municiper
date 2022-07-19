@@ -14,6 +14,11 @@ class ResidentsController < ApplicationController
       valid_params[:addresses_attributes].to_h.map{|k, v| @resident.addresses.build(v) }
   end
 
+  def update
+    @resident = Resident.find(params[:id])
+    @resident.assign_attributes(valid_params)
+  end
+
   private
 
   def valid_params

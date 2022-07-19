@@ -1,15 +1,24 @@
-<% if @resident.save %>
-  $('tbody#residents').prepend("<%= j(render @resident) %>")
-  $('#new-resident-modal').modal('hide')
+$("#edit-resident-<%= @resident.id %>-modal .form-control").removeClass('is-invalid')
 
-  var form = "<%= j(render partial: 'form', locals: {  resident: Resident.new }) %>"
-  $('#new-resident-form-wrapper').html(form)
+<% if @resident.save %>
+  $('tr#resident-<%= @resident.id %>').replaceWith("<%= j(render @resident) %>")
+  $('#edit-resident-<%= @resident.id %>-modal').modal('hide')
 <% else %>
-  $('.form-control').removeClass('is-invalid')
   <% @resident.errors.each do |error| %>
-    var target = $(".form-control#resident_<%= error.attribute %>")
+    var target = $('#edit-resident-<%= @resident.id %>-modal #resident_<%= error.attribute %>')
 
     target.addClass('is-invalid')
     target.parent().find('.invalid-feedback').html("<%= error.message %>")
+  <% end %>
+
+  <% @resident.addresses.each_with_index do |address, i| %>
+    <% address.errors.each do |error| %>
+    resident_addresses_attributes_0_city
+      var target =
+        $("#edit-resident-<%= @resident.id %>-modal #resident_addresses_attributes_<%= i %>_<%= error.attribute %>")
+
+      target.addClass('is-invalid')
+      target.parent().find('.invalid-feedback').html("<%= error.message %>")
+    <% end %>
   <% end %>
 <% end %>

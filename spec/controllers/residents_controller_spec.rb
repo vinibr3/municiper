@@ -28,4 +28,14 @@ RSpec.describe ResidentsController, type: :controller do
         on(:resident)
     end
   end
+
+  context 'PATCH update' do
+    let(:resident) { create(:resident) }
+
+    before { patch :update, params: { resident: resident.attributes, id: resident.id }, format: :js }
+
+    it { is_expected.to(route(:patch, "/residents/#{resident.id}").to(action: :update, id: resident.id)) }
+    it { is_expected.to(render_template(:update)) }
+    it { is_expected.to(respond_with(:ok)) }
+  end
 end
