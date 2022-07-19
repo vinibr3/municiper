@@ -12,5 +12,11 @@ class CreateAddresses < ActiveRecord::Migration[6.1]
 
       t.timestamps
     end
+    add_index :addresses, :zipcode
+    add_index :addresses, :street
+    add_index :addresses, :neighboorhood
+    add_index :addresses, :city
+    add_index :addresses, :state
+    add_index :addresses, :ibge_code
   end
 end
