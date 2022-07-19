@@ -15,6 +15,13 @@ pt-BR:
     birthdate: Data de Aniversário
     phone: Telefone
     photo: Foto
+    zipcode: CEP
+    street: Logradouro
+    complement: Completo
+    neighboorhood: Bairro
+    city: Cidade
+    state: UF
+    ibge_code: Codigo IBGE
   residents:
     new_resident_modal_form:
       new: Novo

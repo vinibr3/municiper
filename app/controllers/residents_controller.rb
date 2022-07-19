@@ -9,14 +9,19 @@ class ResidentsController < ApplicationController
   end
 
   def create
-    @resident = Resident.create(valid_params)
+    @resident = Resident.new(valid_params)
+    @addresses =
+      valid_params[:addresses_attributes].to_h.map{|k, v| @resident.addresses.build(v) }
   end
 
   private
 
   def valid_params
+    addresses_attributes =
+      %i[id zipcode street complement neighboorhood city state ibge_code]
+
     params.require(:resident)
-          .permit(:full_name, :document, :health_card_document, :email,
-                  :phone, :birthdate, :status, :photo)
+          .permit(:full_name, :document, :health_card_document, :email, :phone,
+                  :birthdate, :status, :photo, addresses_attributes: addresses_attributes)
   end
 end

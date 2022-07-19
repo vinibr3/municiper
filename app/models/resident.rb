@@ -23,6 +23,8 @@ class Resident < ApplicationRecord
 
   before_validation :cleasing
 
+  accepts_nested_attributes_for :addresses
+
   private
 
   def birthdate_between_zero_and_125_years_ago

@@ -19,6 +19,7 @@ RSpec.describe Resident, type: :model do
   it { is_expected.to(have_many(:addresses)) }
   it { is_expected.to(validate_presence_of(:status)) }
   it { is_expected.to(define_enum_for(:status).with_values(%w[inactive active])) }
+  it { is_expected.to(accept_nested_attributes_for(:addresses)) }
 
   context 'when validates email' do
     describe 'with valid email' do

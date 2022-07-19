@@ -43,6 +43,44 @@
     <%= f.radio_button :status, 'inactive', required: true %>
     <div class="invalid-feedback"></div>
   </div>
+  <%= f.fields_for :addresses, ensure_address_for(f.object) do |address_form| %>
+    <%= address_form.hidden_field :id %>
+    <div class="mb-3">
+      <%= address_form.label :zipcode, class: 'form-label' %>
+      <%= address_form.text_field :zipcode, class: 'form-control', required: true %>
+      <div class="invalid-feedback"></div>
+    </div>
+    <div class="mb-3">
+      <%= address_form.label :street, class: 'form-label' %>
+      <%= address_form.text_field :street, class: 'form-control', required: true %>
+      <div class="invalid-feedback"></div>
+    </div>
+    <div class="mb-3">
+      <%= address_form.label :neighboorhood, class: 'form-label' %>
+      <%= address_form.text_field :neighboorhood, class: 'form-control', required: true %>
+      <div class="invalid-feedback"></div>
+    </div>
+    <div class="mb-3">
+      <%= address_form.label :city, class: 'form-label' %>
+      <%= address_form.text_field :city, class: 'form-control', required: true %>
+      <div class="invalid-feedback"></div>
+    </div>
+    <div class="mb-3">
+      <%= address_form.label :state, class: 'form-label' %>
+      <%= address_form.text_field :state, class: 'form-control', required: true %>
+      <div class="invalid-feedback"></div>
+    </div>
+    <div class="mb-3">
+      <%= address_form.label :ibge_code, class: 'form-label' %>
+      <%= address_form.text_field :ibge_code, class: 'form-control'%>
+      <div class="invalid-feedback"></div>
+    </div>
+    <div class="mb-3">
+      <%= address_form.label :complement, class: 'form-label' %>
+      <%= address_form.text_field :complement, class: 'form-control' %>
+      <div class="invalid-feedback"></div>
+    </div>
+  <% end %>
 </div>
 <%= f.submit class: 'btn btn-primary' %>
 <% end %>
