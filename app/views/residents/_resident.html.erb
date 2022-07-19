@@ -1,4 +1,4 @@
-<tr>
+<tr id="resident-<%= resident.id %>">
   <td> <%= resident.full_name %> </td>
   <td> <%= format_document(resident.document) %> </td>
   <td> <%= format_brazilian_health_card_number(resident.health_card_document) %> </td>
@@ -6,4 +6,9 @@
   <td> <%= l(resident.birthdate, format: :shortest) %> </td>
   <td> <%= number_to_phone(resident.phone , pattern: /(\d{1,2})(\d{5})(\d{4})$/, area_code: true) %> </td>
   <td> <%= t(resident.status) %> </td>
+  <td> <%= link_to t('edit'),
+                   '',
+                   data: { 'bs-toggle': 'modal',
+                           'bs-target': "#edit-resident-#{resident.id}-modal" } %> </td>
 </tr>
+<%= render partial: 'edit_modal', locals: { resident: resident } %>
